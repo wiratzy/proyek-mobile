@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:proyek_mobile/login_page.dart';
+import 'package:proyek_mobile/first_page.dart';
+import 'package:proyek_mobile/second_page.dart';
+import 'package:proyek_mobile/third_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(),
+      home: ThirdPage(),
     );
   }
 }

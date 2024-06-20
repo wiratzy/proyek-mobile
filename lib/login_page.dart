@@ -12,11 +12,9 @@ class LoginPage extends StatelessWidget {
         // ignore: prefer_const_constructors
         title: Text(
           "Anak Hebat",
-          
-          style: TextStyle(color: Colors.blue),
-          
-          
+          style: TextStyle(color: Colors.white),
         ),
+        backgroundColor: Colors.purple,
       ),
       body: const MyStatefulWidget(),
     ));
@@ -41,9 +39,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         child: ListView(
           children: <Widget>[
             Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
-                child: Image.asset("image/s"),),
+              alignment: Alignment.center,
+              width: 200,
+              height: 200,
+              padding: const EdgeInsets.all(10),
+              child: Image.asset("images/logo.png"),
+            ),
             Container(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
@@ -84,10 +85,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.purple),
+                    foregroundColor:
+                        MaterialStateProperty.all<Color>(Colors.white),
+                  ),
                   child: const Text('Login'),
                   onPressed: () {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
-                    return MainPage();
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) {
+                      return MainPage();
                     }));
                   },
                 )),

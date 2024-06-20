@@ -7,18 +7,79 @@ class SecondPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Second Page',
+        title: const Text(
+          'Anak Hebat',
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.purple,
       ),
       body: Center(
-        child: ElevatedButton(
-          child: Text('Back'),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+        child: Container(
+          alignment: Alignment(0, -25),
+          padding: EdgeInsets.only(bottom: 25),
+          width: 300,
+          height: 700,
+          child: Container(
+            width: 500,
+            child: Column(children: <Widget>[
+              Image(
+                image: AssetImage("images/logo.png"),
+                width: 150,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Masuk Sebagai Mitra',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextFormField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  labelText: 'Enter your username',
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextFormField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  labelText: 'Enter your password',
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  'Login',
+                  style: TextStyle(color: Colors.white),
+                ),
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.purple,
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 30, vertical: 10), // Adjusted padding
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Belum Menambahkan Mitra',
+                style: TextStyle(color: Colors.purple),
+              )
+            ]),
+          ),
         ),
       ),
     );

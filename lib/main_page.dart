@@ -1,4 +1,4 @@
-import 'package:proyek_mobile/second_page.dart';
+import 'package:proyek_mobile/Mitra/second_page.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatelessWidget {

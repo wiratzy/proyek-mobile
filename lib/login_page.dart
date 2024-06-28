@@ -41,7 +41,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             Container(
               alignment: Alignment.center,
               width: 200,
-              height: 200,
+              height: 220,
               padding: const EdgeInsets.all(10),
               child: Image.asset("images/logo.png"),
             ),
@@ -82,7 +82,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               ),
             ),
             Container(
-                height: 50,
+                height: 70,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
                   style: ButtonStyle(

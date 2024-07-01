@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class EightPage extends StatelessWidget {
+class SeventeenPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String? selectedDay;
@@ -11,7 +11,7 @@ class EightPage extends StatelessWidget {
         child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
-             color: Color.fromARGB(255, 232, 191, 222),
+             color: const Color.fromARGB(255, 216, 98, 237),
             borderRadius: BorderRadius.vertical(
               top: Radius.circular(30),
               bottom: Radius.circular(30),

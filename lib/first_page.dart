@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'OrangTua/fourth_page.dart';
+import 'Mitra/second_page.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
@@ -18,7 +20,7 @@ class FirstPage extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.all(5),
             margin: EdgeInsets.only(bottom: 150), // Adjusted bottom margin
-            width: 200,
+            width: 300, // Adjusted width for horizontal buttons
             height: 500, // Adjusted height
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -27,9 +29,9 @@ class FirstPage extends StatelessWidget {
                   "images/logo.png",
                   height: 100, // Adjusted image height
                 ),
-                SizedBox(height: 20), // Add some spacing between image and text
+                SizedBox(height: 20), // Spacing between image and text
                 Text(
-                  "Siapa Anda ?",
+                  "Masuk Sebagai ",
                   style: TextStyle(
                       color: Colors.black,
                       fontStyle: FontStyle.normal,
@@ -37,30 +39,40 @@ class FirstPage extends StatelessWidget {
                       fontSize: 30),
                 ),
                 SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    // Button action
-                  },
-                  child: Text("Orang Tua"),
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.purple,
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 10), // Adjusted padding
-                  ),
-                ),
-                SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    // Another button action
-                  },
-                  child: Text('Mitra Ahe'),
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.purple,
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 10), // Adjusted padding
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => FourthPage()),
+                        );
+                      },
+                      child: Text("Orang Tua"),
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.purple,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 10), // Adjusted padding
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SecondPage()),
+                        );
+                      },
+                      child: Text('Mitra Ahe'),
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.purple,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 10), // Adjusted padding
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

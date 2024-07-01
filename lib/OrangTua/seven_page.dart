@@ -6,35 +6,12 @@ class SevenPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100.0),
-        child: AppBar(
-          title: Text('Welcome Moms!', style: TextStyle(fontSize: 24)),
-          actions: [
-            IconButton(
-              icon: Icon(Icons.settings),
-              onPressed: () {
-                // Tambahkan aksi untuk ikon pengaturan
-              },
-            ),
-          ],
-          centerTitle: true,
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-              color: Colors.orange,
-              borderRadius: BorderRadius.vertical(
-                bottom: Radius.circular(30), // Border radius untuk sudut bawah
-              ),
-            ),
-          ),
-        ),
-      ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 5.0),
+        padding: const EdgeInsets.all(10.0),
         child: Container(
           decoration: BoxDecoration(
-            color: Color.fromARGB(255, 215, 24, 167),
-            borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+            color: Color.fromARGB(255, 232, 191, 222),
+            borderRadius: BorderRadius.vertical(top: Radius.circular(30),bottom: Radius.circular(30),),
           ),
           child: Container(
             width: 500,
@@ -49,45 +26,10 @@ class SevenPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '1. Usia minimal 4.5 tahun',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '2. Bukan termasuk anak berkebutuhan khusus (ABK)',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '3. Mengisi formulir pendaftaran',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '4. Membayar biaya pendaftaran Rp. 160.000',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                    ),
-                  ],
-                ),
+                _buildTextRow('1. Usia minimal 4.5 tahun'),
+                _buildTextRow('2. Bukan termasuk anak berkebutuhan khusus (ABK)'),
+                _buildTextRow('3. Mengisi formulir pendaftaran'),
+                _buildTextRow('4. Membayar biaya pendaftaran Rp. 160.000'),
                 SizedBox(height: 20),
                 Center(
                   child: Text(
@@ -96,53 +38,11 @@ class SevenPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 10),
-                Container(
-                  width: 200,
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Nama Lengkap',
-                      filled: true,
-                      fillColor: Colors.white,
-                      contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
+                _buildInputField('Nama Lengkap', TextInputType.text),
                 SizedBox(height: 10),
-                Container(
-                  width: 200,
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Tanggal Lahir',
-                      filled: true,
-                      fillColor: Colors.white,
-                      contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
+                _buildInputField('Tanggal Lahir', TextInputType.datetime),
                 SizedBox(height: 10),
-                Container(
-                  width: 200,
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Kelas',
-                      filled: true,
-                      fillColor: Colors.white,
-                      contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
+                _buildInputField('Kelas', TextInputType.text),
                 SizedBox(height: 20),
                 Center(
                   child: ElevatedButton(
@@ -161,6 +61,34 @@ class SevenPage extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildTextRow(String text) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 5.0),
+      child: Text(
+        text,
+        style: TextStyle( fontSize: 15, ),
+      ),
+    );
+  }
+
+  Widget _buildInputField(String labelText, TextInputType inputType) {
+    return Container(
+      child: TextFormField(
+        decoration: InputDecoration(
+          labelText: labelText,
+          filled: true,
+          fillColor: Colors.white,
+          contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+        ),
+        textAlign: TextAlign.center,
+        keyboardType: inputType,
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'sixteen_page.dart';
 
 class ThirdPage extends StatelessWidget {
   const ThirdPage({super.key});
@@ -22,7 +23,7 @@ class ThirdPage extends StatelessWidget {
               padding: EdgeInsets.only(bottom: 20),
               child: Column(
                 children: [
-                  Padding(padding: EdgeInsets.only(top: 100)),
+                  Padding(padding: EdgeInsets.only(top: 10)),
                   Image(
                     image: AssetImage('images/logo.png'),
                     width: 150,
@@ -155,7 +156,12 @@ class ThirdPage extends StatelessWidget {
                           height: 20,
                         ),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SixteenPage()),
+                          );
+                          },
                           child: Text(
                             'Daftar',
                             style: TextStyle(color: Colors.white),

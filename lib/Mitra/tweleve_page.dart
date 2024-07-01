@@ -5,49 +5,9 @@ class TwelevePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Anak Hebat',
-            style: TextStyle(color: Colors.white),
-          ),
-          backgroundColor: Colors.purple,
-        ),
+    return Scaffold(
         body: Column(
           children: [
-            Container(
-              decoration: BoxDecoration(color: Colors.orange),
-              child: Row(
-                children: [
-                  Container(
-                    color: Colors.orange,
-                    child: Image(
-                      width: 200,
-                      image: AssetImage('images/logo.png'),
-                    ),
-                  ),
-                  Container(
-                    width: 150,
-                    height: 100,
-                    child: Center(
-                      child: Text(
-                        'Hai Mitra',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 30,
-                  ),
-                ],
-              ),
-            ),
             Container(
               child: Column(
                 children: [
@@ -145,7 +105,6 @@ class TwelevePage extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }

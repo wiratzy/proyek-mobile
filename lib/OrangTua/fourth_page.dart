@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'six_page.dart';
+import 'fifth_page.dart';
 
 class FourthPage extends StatelessWidget {
   const FourthPage({super.key});
@@ -60,7 +62,12 @@ class FourthPage extends StatelessWidget {
                     height: 20,
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SixPage()),
+                      );
+                    },
                     child: Text(
                       'Login',
                       style: TextStyle(color: Colors.white),
@@ -75,10 +82,21 @@ class FourthPage extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  Text(
-                    'Belum Menambahkan Mitra',
-                    style: TextStyle(color: Colors.purple),
-                  )
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => FifthPage()),
+                      );
+                    },
+                    child: Text(
+                      'Belum Daftar ? Daftar Sekarang',
+                      style: TextStyle(
+                        color: Colors.purple,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

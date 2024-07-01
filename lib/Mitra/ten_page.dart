@@ -1,130 +1,97 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:proyek_mobile/Mitra/seventeen_page.dart';
+import 'eleven_page.dart'; // Pastikan untuk mengimport halaman SevenPage jika belum
+import 'tweleve_page.dart'; // Import halaman EightPage
+import 'thirteen_page.dart'; // Import halaman NinePage
 
 class TenPage extends StatelessWidget {
-  const TenPage({super.key});
+  const TenPage({Key? key}) : super(key: key);
+
+  // Daftar warna yang berbeda untuk setiap item
+  static final List<Color> _itemColors = [
+    Colors.orange,
+    Colors.blue,
+    Colors.green,
+    Colors.purple,
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Anak Hebat',
-            style: TextStyle(color: Colors.white),
-          ),
-          backgroundColor: Colors.purple,
-        ),
-        body: 
-        Column(
-          children: [
-            Flexible(
-              flex: 1,
-              child: Row(
-                children: [
-                  Flexible(
-                      flex: 1,
-                      child: Container(
-                        child: Image(
-                          image: AssetImage('images/logo.png'),
-                        ),
-                        margin: EdgeInsets.all(10),
-                      )),
-                  Flexible(
-                      flex: 1,
-                      child: Container(
-                        padding: EdgeInsets.only(left: 50),
-                        child: Text(
-                          'Hai Mitra..',
-                          style: TextStyle(
-                              fontSize: 25, fontWeight: FontWeight.bold),
-                        ),
-                      )),
-                ],
-              ),
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(100.0), // Menambah tinggi AppBar
+        child: AppBar(
+          title: Text('Mitra Pabean Ilir', style: TextStyle(fontSize: 24)), // Menyesuaikan ukuran teks
+          actions: [
+            IconButton(
+              icon: Icon(Icons.settings),
+              onPressed: () {
+                // Tambahkan aksi untuk ikon pengaturan
+              },
             ),
-            Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 100,
-                        height: 100,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Daftar Pengajar',
-                            style: TextStyle(fontSize: 12, color: Colors.black),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 50,
-                      ),
-                      SizedBox(
-                        width: 100,
-                        height: 100,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Daftar Murid',
-                            style: TextStyle(color: Colors.black),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: 100,
-                        height: 100,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Jadwal Belajar',
-                            style: TextStyle(color: Colors.black),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 50,
-                      ),
-                      SizedBox(
-                        width: 100,
-                        height: 100,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Aktivitas Anak',
-                            style: TextStyle(color: Colors.black),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              width: 400,
-              height: 650,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(50),
-                    topRight: Radius.circular(50)),
-                color: Colors.orange,
-              ),
-            )
+          ],
+          centerTitle: true, // Menengahkan teks
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0), // Padding kiri dan kanan
+        child: GridView.count(
+          crossAxisCount: 2,
+          mainAxisSpacing: 16.0, // Jarak antar baris
+          crossAxisSpacing: 16.0, // Jarak antar kolom
+          children: [
+            _buildGridItem('Daftar Pengajar', Icons.school_outlined, context, ElevenPage(), _itemColors[0]),
+            _buildGridItem('Daftar Murid', Icons.people_alt_outlined, context, TwelevePage(), _itemColors[1]),
+            _buildGridItem('Jadwal', Icons.calendar_today_rounded, context, ThirteenPage(), _itemColors[2]),
+            _buildGridItem('Aktivitas Anak', Icons.assignment, context, SeventeenPage(), _itemColors[3]),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildGridItem(String title, IconData icon, BuildContext context, Widget destination, Color color) {
+    return Card(
+      elevation: 2,
+      color: color, // Mengatur warna card sesuai dengan parameter color
+      child: InkWell(
+       onTap: () {
+          // Tambahkan aksi untuk tiap grid item
+          if (title == 'Daftar Pengajar') {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ElevenPage()),
+            );
+          } else if (title == 'Daftar Murid') {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => TwelevePage()),
+            );
+          } else if (title == 'Jadwal') {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SeventeenPage()),
+            );
+          } else if (title == 'Aktivitas Anak') {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ThirteenPage()),
+            );
+          }
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, size: 50),
+              SizedBox(height: 10),
+              Text(title, textAlign: TextAlign.center),
+            ],
+          ),
+        ),
+      ),
+    
     );
   }
 }

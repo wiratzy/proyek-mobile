@@ -4,35 +4,15 @@ class NinePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100.0), // Meningkatkan tinggi AppBar
-        child: AppBar(
-          title: Text('Welcome Moms!', style: TextStyle(fontSize: 24)),
-          centerTitle: true, // Menengahkan teks
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image.asset('assets/logo.png'), // Ganti dengan logo Anda
-            ),
-          ],
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-              color: Colors.orange,
-              borderRadius: BorderRadius.vertical(
-                bottom: Radius.circular(30), // Border radius untuk sudut bawah
-              ),
-            ),
-          ),
-        ),
-      ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        padding: const EdgeInsets.all(10.0),
         child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: Colors.purpleAccent,
+            color: Color.fromARGB(255, 232, 191, 222),
             borderRadius: BorderRadius.vertical(
-              top: Radius.circular(30), // Border radius untuk sudut atas
+              top: Radius.circular(30),
+              bottom: Radius.circular(30),
             ),
           ),
           child: Padding(
@@ -42,7 +22,7 @@ class NinePage extends StatelessWidget {
               children: [
                 Center(
                   child: Text(
-                    'Pantauan Pembelajaran',
+                    'Pantauan Aktivitas',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -51,12 +31,34 @@ class NinePage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                Table(
+                  border: TableBorder.all(),
                   children: [
-                    _buildCircleButton('Tingkatan'),
-                    _buildCircleButton('Pengajar'),
-                    _buildCircleButton('Nilai'),
+                    TableRow(
+                      children: [
+                        _buildTableHeader('Nomor'),
+                        _buildTableHeader('Tingkatan'),
+                        _buildTableHeader('Pengajar'),
+                        _buildTableHeader('Nilai'),
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        _buildTableCell('1'),
+                        _buildTableCell('Tingkat 1'),
+                        _buildTableCell('Budi'),
+                        _buildTableCell('A'),
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        _buildTableCell('2'),
+                        _buildTableCell('Tingkat 2'),
+                        _buildTableCell('Sari'),
+                        _buildTableCell('B+'),
+                      ],
+                    ),
+                    // Tambahkan baris data lainnya sesuai kebutuhan
                   ],
                 ),
                 Spacer(),
@@ -87,19 +89,23 @@ class NinePage extends StatelessWidget {
     );
   }
 
-  Widget _buildCircleButton(String title) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-      ),
+  Widget _buildTableHeader(String title) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
       child: Text(
         title,
-        style: TextStyle(
-          fontSize: 18,
-          color: Colors.black,
-        ),
+        style: TextStyle(fontWeight: FontWeight.bold),
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+
+  Widget _buildTableCell(String value) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Text(
+        value,
+        textAlign: TextAlign.center,
       ),
     );
   }

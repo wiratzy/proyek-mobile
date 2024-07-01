@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'six_page.dart';
 
 class FifthPage extends StatelessWidget {
   const FifthPage({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class FifthPage extends StatelessWidget {
           backgroundColor: Colors.purple,
         ),
         body: SingleChildScrollView(
+          padding: EdgeInsets.all(20),
           physics: const AlwaysScrollableScrollPhysics(),
           child: Center(
             child: Column(
@@ -34,61 +36,49 @@ class FifthPage extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                 ),
                 SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  width: 200,
-                  child: TextFormField(
+                    height: 20,
+                  ),
+                  TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Nama',
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
+                      labelText: 'Masukkan Nama',
                     ),
                   ),
-                ),
                 SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  width: 200,
-                  child: TextFormField(
+                    height: 20,
+                  ),
+                  TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Kontak',
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
+                      labelText: 'Mausukkan Kontak',
                     ),
                   ),
-                ),
+               SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      labelText: 'Masukkan Email',
+                    ),
+                  ),
                 SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  width: 200,
-                  child: TextFormField(
+                    height: 20,
+                  ),
+                  TextFormField(
                     decoration: InputDecoration(
-                      labelText: 'Username',
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
+                      labelText: 'Masukkan Password',
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  width: 200,
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                  ),
-                ),
                 SizedBox(
                   height: 10,
                 ),
@@ -96,51 +86,56 @@ class FifthPage extends StatelessWidget {
                   'Alamat',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                 ),
-                Container(
-                  width: 200,
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Provinsi',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                    ),
+                 GridView.count(
+                    shrinkWrap: true,
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10,
+                    // mainAxisSpacing: 20,
+                    children: <Widget>[
+                      TextFormField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          labelText: 'Provinsi',
+                        ),
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          labelText: 'Kabupaten',
+                        ),
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          labelText: 'Kecamatan',
+                        ),
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          labelText: 'Kelurahan',
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                Container(
-                  width: 200,
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Kabupaten',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 200,
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Kecamatan',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 200,
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Kelurahan',
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                    ),
-                  ),
-                ),
                 SizedBox(
                           height: 20,
                           ),
                             ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SixPage()),
+                      );
+                            },
                             child: Text(
                             'Daftar',
                             style: TextStyle(color: Colors.white),

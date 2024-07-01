@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'third_page.dart';
+import 'sixteen_page.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({super.key});
@@ -59,7 +61,12 @@ class SecondPage extends StatelessWidget {
                 height: 20,
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SixteenPage()),
+                          );
+                },
                 child: Text(
                   'Login',
                   style: TextStyle(color: Colors.white),
@@ -74,11 +81,23 @@ class SecondPage extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Text(
-                'Belum Menambahkan Mitra',
-                style: TextStyle(color: Colors.purple),
-              )
-            ]),
+              GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ThirdPage()),
+                      );
+                    },
+                    child: Text(
+                      'Belum Menambahkan Mitra',
+                      style: TextStyle(
+                        color: Colors.purple,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+            ]
+            ),
           ),
         ),
       ),

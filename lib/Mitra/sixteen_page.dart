@@ -1,30 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:proyek_mobile/OrangTua/seven_page.dart'; // Pastikan untuk mengimport halaman SevenPage jika belum
-import 'package:proyek_mobile/OrangTua/eight_page.dart'; // Pastikan untuk mengimport halaman SevenPage jika belum
-import 'package:proyek_mobile/OrangTua/nine_page.dart'; // Pastikan untuk mengimport halaman SevenPage jika belum
-import 'package:proyek_mobile/OrangTua/fourteen_page.dart'; // Pastikan untuk mengimport halaman SevenPage jika belum
-import 'package:proyek_mobile/OrangTua/fifteen_page.dart'; // Pastikan untuk mengimport halaman SevenPage jika belum
+import 'package:proyek_mobile/Mitra/thirteen_page.dart';
+import 'package:proyek_mobile/Mitra/ten_page.dart';
+import 'package:proyek_mobile/Mitra/eleven_page.dart';
+import 'package:proyek_mobile/Mitra/tweleve_page.dart';
+import 'package:proyek_mobile/Mitra/seventeen_page.dart';
 
-
-class SixPage extends StatefulWidget {
-  const SixPage({Key? key}) : super(key: key);
+class SixteenPage extends StatefulWidget {
+  const SixteenPage({Key? key}) : super(key: key);
 
   @override
-  _SixPageState createState() => _SixPageState();
+  _SixteenPageState createState() => _SixteenPageState();
 }
 
-class _SixPageState extends State<SixPage> {
+class _SixteenPageState extends State<SixteenPage> {
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
-    const FourteenPage(),
-    const SevenPage(),
-    EightPage(),
-    NinePage(),
-    FifteenPage(),
-    
+    const TenPage(),
+    ElevenPage(),
+    TwelevePage(),
+    SeventeenPage(),
+    ThirteenPage(),
   ];
 
-@override
+  @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -44,7 +42,7 @@ class _SixPageState extends State<SixPage> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('Berhasil Login!'),
-          content: Text('Selamat datang di Aplikasi Anak Hebat.'),
+          content: Text('Selamat datang Mitra Pabean Ilir.'),
           actions: <Widget>[
             TextButton(
               child: Text('OK'),
@@ -62,12 +60,13 @@ class _SixPageState extends State<SixPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(
-            'Anak Hebat',
-            style: TextStyle(color: Colors.white),
-          ), centerTitle: true,
-          backgroundColor: Colors.purple,
+        title: Text(
+          'Anak Hebat',
+          style: TextStyle(color: Colors.white),
         ),
+        centerTitle: true,
+        backgroundColor: Colors.purple,
+      ),
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.orange,
@@ -83,19 +82,19 @@ class _SixPageState extends State<SixPage> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.edit),
-            label: 'Pendaftaran',
+            icon: Icon(Icons.school_outlined),
+            label: 'Daftar Pengajar',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today),
-            label: 'Jadwal',
+            icon: Icon(Icons.people_alt_outlined),
+            label: 'Daftar Murid',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today_rounded),
+            label: 'Jadwal Belajar',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.assignment),
-            label: 'Aktivitas Anak',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
             label: 'Metode Pembelajaran',
           ),
         ],
